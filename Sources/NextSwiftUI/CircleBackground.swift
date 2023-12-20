@@ -17,8 +17,6 @@ struct CircleBackground: View {
     }
 }
 
-struct CircleBackground_Previews: PreviewProvider {
-    static var previews: some View {
-        CircleBackground()
-    }
+#Preview {
+    CircleBackground()
 }
