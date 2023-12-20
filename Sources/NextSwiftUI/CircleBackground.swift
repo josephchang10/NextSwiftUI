@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct CircleBackground: View {
+    var color = Color.greenCircle
+    
     var body: some View {
         Circle()
             .frame(width: 300, height: 300)
-            .foregroundColor(.greenCircle)
+            .foregroundColor(color)
     }
 }
 
