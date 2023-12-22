@@ -12,7 +12,7 @@ public struct ActionButtonView: View {
     
     public var body: some View {
         button
-            .foregroundStyle(Color(.label))
+            .foregroundStyle(.primary)
             .padding()
             .frame(height: 44)
             .background(.linearGradient(colors: [.clear, .black.opacity(0.3)], startPoint: .topLeading, endPoint: .bottomTrailing))
