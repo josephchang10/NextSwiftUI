@@ -25,7 +25,6 @@ public struct CardView: View {
             )
             .frame(maxHeight: .infinity, alignment: .top)
             .background(background.aspectRatio(contentMode: .fill))
-            .frame(height: 300)
             .cornerRadius(20)
             .overlay(
                 RoundedRectangle(cornerRadius: 20)
