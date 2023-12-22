@@ -1,0 +1,45 @@
+//
+//  SwiftUIView.swift
+//  
+//
+//  Created by Jiafu Zhang on 12/22/23.
+//
+
+import SwiftUI
+
+public struct CardView: View {
+    private var background: AnyView
+    private var title: AnyView
+    
+    public var body: some View {
+        title
+            .font(.headline)
+            .offset(y: -10)
+            .padding()
+            .frame(maxWidth: .infinity)
+            .frame(height: 70)
+            .background(
+                Rectangle().fill(.ultraThinMaterial)
+                    .blur(radius: 20)
+                    .offset(y: -20)
+            )
+            .frame(maxHeight: .infinity, alignment: .top)
+            .background(background.aspectRatio(contentMode: .fill))
+            .frame(height: 300)
+            .cornerRadius(20)
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(.linearGradient(colors: [.white.opacity(0.3), .white.opacity(0.1)], startPoint: .topLeading, endPoint: .bottomTrailing))
+            )
+    }
+    
+    public init(title: any View, background: any View) {
+        self.background = AnyView(background)
+        self.title = AnyView(title)
+    }
+}
+
+#Preview {
+    CardView(title: Text("Sunset"), background: Color.next.backgroundColor)
+        .preferredColorScheme(.dark)
+}
