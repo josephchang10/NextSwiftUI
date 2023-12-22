@@ -25,6 +25,8 @@ public struct SpinningIndicator: View {
                 spinnerLength = 0
             }
     }
+    
+    public init() {}
 }
 
 #Preview {
