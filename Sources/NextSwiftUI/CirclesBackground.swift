@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct CirclesBackground<Content: View>: View {
+public struct CirclesBackground<Content: View>: View {
     @State private var animate: Bool = false
     let content: Content  // The content view that will be placed on top
     
-    var body: some View {
+    public var body: some View {
         ZStack {
             Group {
                 CircleBackground(color: .next.greenCircle)
