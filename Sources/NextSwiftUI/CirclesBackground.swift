@@ -40,7 +40,7 @@ public struct CirclesBackground<Content: View>: View {
         )
     }
     
-    init(@ViewBuilder content: () -> Content) {
+    public init(@ViewBuilder content: () -> Content) {
         self.content = content()
     }
 }
