@@ -7,16 +7,26 @@
 
 import SwiftUI
 
-extension Color {
+public extension Color {
     struct Next {
-        static let background = named("background")
-        static let background2 = named("background2")
-        static let greenCircle = named("greenCircle")
-        static let cyan = named("cyan")
-        static let grey = named("grey")
-        static let pinkCircle = named("pinkCircle")
-        static let majenta = named("majenta")
-        static let pink = named("pink")
+        public static let background = named("background")
+        public static let background2 = named("background2")
+        public static let greenCircle = named("greenCircle")
+        public static let cyan = named("cyan")
+        public static let grey = named("grey")
+        public static let lightPurple = named("lightPurple")
+        public static let pinkCircle = named("pinkCircle")
+        public static let purple = named("purple")
+        public static let majenta = named("majenta")
+        public static let pink = named("pink")
+        
+        static let systemBackground = {
+            #if os(macOS)
+            Color(nsColor: .windowBackgroundColor)
+            #else
+            Color.systemBackground
+            #endif
+        }()
         
         // Helper function to get the Color from assets
         private static func named(_ name: String) -> Color {
