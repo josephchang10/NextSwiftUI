@@ -8,11 +8,10 @@
 import SwiftUI
 
 public struct ActionButtonView: View {
-    let button: AnyView
+    let content: AnyView
     
     public var body: some View {
-        button
-            .buttonStyle(.plain)
+        content
             .padding()
             .frame(height: 44)
             .background(.linearGradient(colors: [.clear, .black.opacity(0.3)], startPoint: .topLeading, endPoint: .bottomTrailing))
@@ -23,13 +22,13 @@ public struct ActionButtonView: View {
             .cornerRadius(20)
     }
     
-    public init(button: any View) {
-        self.button = AnyView(button)
+    public init(content: any View) {
+        self.content = AnyView(content)
     }
 }
 
 #Preview {
-    ActionButtonView(button: Button(action: {}, label: {
+    ActionButtonView(content: Button(action: {}, label: {
         Image(systemName: "square.and.arrow.down")
     }))
 }

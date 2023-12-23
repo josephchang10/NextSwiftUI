@@ -58,12 +58,8 @@ public struct CardView: View {
 }
 
 #Preview {
-    CardView(title: Text("Sunset"), background: Color.next.background, overlay:
-                ActionButtonView(button: Button(action: {}, label: {
-        Image(systemName: "square.and.arrow.down")
-    }))
-    )
-    .preferredColorScheme(.dark)
+    CardView(title: Text("Sunset"), background: Color.next.background, overlay: ActionButtonView(content: Image(systemName: "square.and.arrow.down")))
+        .preferredColorScheme(.dark)
 }
 
 #Preview {
