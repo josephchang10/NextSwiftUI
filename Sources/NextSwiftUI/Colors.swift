@@ -14,6 +14,7 @@ public extension Color {
         public static let greenCircle = named("greenCircle")
         public static let cyan = named("cyan")
         public static let grey = named("grey")
+        public static let lightBlue = named("lightBlue")
         public static let lightPurple = named("lightPurple")
         public static let pinkCircle = named("pinkCircle")
         public static let purple = named("purple")

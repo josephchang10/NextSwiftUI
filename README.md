@@ -1,2 +1,2 @@
 # NextSwiftUI
-Focused on aesthetics and design, NextSwiftUI enables you to make SwiftUI apps faster.
+Make beautiful SwiftUI apps regardless of your design experience.
