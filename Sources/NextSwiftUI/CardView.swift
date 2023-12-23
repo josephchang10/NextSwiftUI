@@ -58,7 +58,7 @@ public struct CardView: View {
 }
 
 #Preview {
-    CardView(title: Text("Sunset"), background: Color.next.backgroundColor, overlay:
+    CardView(title: Text("Sunset"), background: Color.next.background, overlay:
                 ActionButtonView(button: Button(action: {}, label: {
         Image(systemName: "square.and.arrow.down")
     }))
@@ -67,5 +67,5 @@ public struct CardView: View {
 }
 
 #Preview {
-    CardView(title: Text("Sunset"), background: Color.next.backgroundColor)
+    CardView(title: Text("Sunset"), background: Color.next.background)
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 extension LinearGradient {
     struct Next {
-        static let background = LinearGradient(gradient: Gradient(colors: [.next.backgroundColor, .next.backgroundColor2]), startPoint: .top, endPoint: .bottom)
+        static let background = LinearGradient(gradient: Gradient(colors: [.next.background, .next.background2]), startPoint: .top, endPoint: .bottom)
     }
     
     static var next: Next.Type { Next.self }
