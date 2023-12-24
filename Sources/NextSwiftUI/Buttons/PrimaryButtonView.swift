@@ -15,7 +15,6 @@ public struct PrimaryButtonView: View {
     
     public var body: some View {
         content
-            .buttonStyle(.plain)
             .font(.subheadline.weight(.bold))
             .foregroundColor(.white)
             .padding()

@@ -12,7 +12,6 @@ public struct AngularButtonView: View {
     
     public var body: some View {
         content
-            .buttonStyle(.plain)
             .fontWeight(.semibold)
             .frame(maxHeight: 50)
             .background(
