@@ -22,16 +22,16 @@ public extension Color {
         public static let pink = named("pink")
         
         static let systemBackground = {
-            #if os(macOS)
+            #if canImport(AppKit)
             Color(nsColor: .windowBackgroundColor)
             #else
-            Color.systemBackground
+            Color(.systemBackground)
             #endif
         }()
         
         // Helper function to get the Color from assets
         private static func named(_ name: String) -> Color {
-            #if os(macOS)
+            #if canImport(AppKit)
             .init(nsColor: NSColor(named: name, bundle: .module)!)
             #else
             .init(uiColor: UIColor(named: name, in: .module, compatibleWith: nil)!)

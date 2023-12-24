@@ -28,7 +28,5 @@ public struct ActionButtonView: View {
 }
 
 #Preview {
-    ActionButtonView(content: Button(action: {}, label: {
-        Image(systemName: "square.and.arrow.down")
-    }))
+    ActionButtonView(content: Image(systemName: "square.and.arrow.down"))
 }

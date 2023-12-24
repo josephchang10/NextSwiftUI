@@ -8,13 +8,13 @@
 import SwiftUI
 
 public struct PrimaryButtonView: View {
-    let button: AnyView
+    let content: AnyView
     
     var borderColors: [Color] = [.next.pink, .next.pink.opacity(0), .next.pink.opacity(0)]
     var gradient: [Color] = [.next.majenta, .next.background]
     
     public var body: some View {
-        button
+        content
             .buttonStyle(.plain)
             .font(.subheadline.weight(.bold))
             .foregroundColor(.white)
@@ -30,13 +30,11 @@ public struct PrimaryButtonView: View {
             }
     }
     
-    public init(button: any View) {
-        self.button = AnyView(button)
+    public init(content: any View) {
+        self.content = AnyView(content)
     }
 }
 
 #Preview {
-    PrimaryButtonView(button: Button(action: {}, label: {
-        Text("Hello, World!")
-    }))
+    PrimaryButtonView(content: Text("Hello, World!"))
 }

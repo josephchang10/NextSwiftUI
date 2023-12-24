@@ -8,10 +8,10 @@
 import SwiftUI
 
 public struct AngularButtonView: View {
-    let button: AnyView
+    let content: AnyView
     
     public var body: some View {
-        button
+        content
             .buttonStyle(.plain)
             .fontWeight(.semibold)
             .frame(maxHeight: 50)
@@ -35,14 +35,12 @@ public struct AngularButtonView: View {
             .blur(radius: 20)
     }
     
-    public init(button: any View) {
-        self.button = AnyView(button)
+    public init(content: any View) {
+        self.content = AnyView(content)
     }
 }
 
 
 #Preview {
-    AngularButtonView(button: Button(action: {}, label: {
-        Text("Hello World!")
-    }))
+    AngularButtonView(content: Text("Hello World!"))
 }
