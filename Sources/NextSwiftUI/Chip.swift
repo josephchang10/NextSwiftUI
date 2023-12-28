@@ -37,11 +37,11 @@ public struct Chip: View {
 }
 
 #Preview {
-    Chip(Text("Hello, World!"))
+    Chip(Text("Chip"))
 //        .preferredColorScheme(.dark)
 }
 
 #Preview {
-    Chip(Text("Hello, World!").fontWeight(.semibold).paddingHorizontal(size: 2), backgroundColor: .clear, borderColor: .white.opacity(0.3), borderWidth: 1)
+    Chip(Text("Chip").fontWeight(.semibold).paddingHorizontal(size: 2), backgroundColor: .clear, borderColor: .white.opacity(0.3), borderWidth: 1)
         .preferredColorScheme(.dark)
 }

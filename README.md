@@ -12,7 +12,7 @@ NextSwiftUI's primary goal is to streamline the development process, offering a 
 A Chip is a small block of essential information that represent an input, attribute, or action.
 #### Usage
 ```swift
-Chip(Text("Hello, World!"))
+Chip(Text("Chip"))
 ````
 ![](Docs/Assets/Chip/Usage.png)
 ### CircularProgressView
