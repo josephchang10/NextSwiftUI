@@ -22,23 +22,24 @@ public struct BlurredBackgroundModifier: ViewModifier {
         }
     }
     
-    let amount: Amount
+    let radius: CGFloat
     
     public func body(content: Content) -> some View {
         ZStack {
             content
-                .blur(radius: amount.radius)
+                .scaleEffect(1.05)
+                .blur(radius: radius)
             content
         }
     }
     
-    init(amount: Amount) {
-        self.amount = amount
+    init(amount: Amount?) {
+        radius = amount?.radius ?? 8
     }
 }
 
 public extension View {
-    func blurred(_ amount: BlurredBackgroundModifier.Amount) -> some View {
+    func blurred(_ amount: BlurredBackgroundModifier.Amount? = nil) -> some View {
         modifier(BlurredBackgroundModifier(amount: amount))
     }
 }
