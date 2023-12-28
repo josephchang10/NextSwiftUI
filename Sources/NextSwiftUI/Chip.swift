@@ -15,7 +15,7 @@ public struct Chip: View {
     let content: AnyView
     
     public var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        content
             .padding()
             .overlay {
                 Capsule()
