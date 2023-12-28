@@ -49,19 +49,26 @@ public struct CircularProgressView: View {
     let size: Size
     
     public var body: some View {
-        Circle()
-            .trim(from: 0.0, to: spinnerLength)
-            .stroke(LinearGradient(colors: [.red, .blue], startPoint: .topLeading, endPoint: .bottomTrailing), style: StrokeStyle(lineWidth: size.lineWidth, lineCap: .round, lineJoin: .round))
-            .animation(Animation.easeIn(duration: 1.5).repeatForever(autoreverses: true), value: spinnerLength)
-            .frame(width: size.width, height: size.height)
-            .rotationEffect(Angle(degrees: Double(degree)))
-            .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false), value: degree)
-            .onAppear {
-                if animate {
-                    degree = 270 + 360
-                    spinnerLength = 0
+        ZStack {
+            Circle()
+                .stroke(
+                    Color.next.default300.opacity(0.5),
+                    lineWidth: size.lineWidth
+                )
+            Circle()
+                .trim(from: 0.0, to: spinnerLength)
+                .stroke(LinearGradient(colors: [.red, .blue], startPoint: .topLeading, endPoint: .bottomTrailing), style: StrokeStyle(lineWidth: size.lineWidth, lineCap: .round, lineJoin: .round))
+                .animation(Animation.easeIn(duration: 1.5).repeatForever(autoreverses: true), value: spinnerLength)
+                .rotationEffect(Angle(degrees: Double(degree)))
+                .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false), value: degree)
+                .onAppear {
+                    if animate {
+                        degree = 270 + 360
+                        spinnerLength = 0
+                    }
                 }
-            }
+        }
+        .frame(width: size.width, height: size.height)
     }
     
     public init(size: Size = .middle) {
@@ -83,6 +90,7 @@ public struct CircularProgressView: View {
         CircularProgressView()
         CircularProgressView(size: .large)
     }
+    .preferredColorScheme(.dark)
 }
 
 #Preview {

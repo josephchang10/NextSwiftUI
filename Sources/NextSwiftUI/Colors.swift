@@ -9,9 +9,12 @@ import SwiftUI
 
 public extension Color {
     struct Next {
+        @Environment(\.colorScheme) var colorScheme
+        
         public static let background = named("background")
         public static let background2 = named("background2")
-        public static let defaultColor = Color(h: .degrees(240), s: 5 / 100, l: 26 / 100)
+        public static let defaultColor = named("default")
+        public static let default300 = named("default-300")
         public static let greenCircle = named("greenCircle")
         public static let cyan = named("cyan")
         public static let grey = named("grey")
@@ -45,13 +48,13 @@ public extension Color {
 
 extension Color {
     // MARK: HSV initializers
-    init(h: Angle, s: Double, v: Double, opacity: Double = 1) {
-        self.init(hue: h.degrees / 360, saturation: s, brightness: v, opacity: opacity)
+    init(hue: Angle, saturation: Double, value: Double, opacity: Double = 1) {
+        self.init(hue: hue.degrees / 360, saturation: saturation, brightness: value, opacity: opacity)
     }
 
     // MARK: HSL initializers
-    init(h: Angle, s: Double, l: Double, opacity: Double = 1) {
-        let v = l + s * min(l, 1 - l)
-        self.init(h: h, s: v == 0 ? 0 : 2 * (1 - l / v), v: v, opacity: opacity)
+    init(hue: Angle, saturation: Double, lightness: Double, opacity: Double = 1) {
+        let value = lightness + saturation * min(lightness, 1 - lightness)
+        self.init(hue: hue, saturation: value == 0 ? 0 : 2 * (1 - lightness / value), value: value, opacity: opacity)
     }
 }
