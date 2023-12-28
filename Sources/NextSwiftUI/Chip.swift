@@ -28,7 +28,7 @@ public struct Chip: View {
             .clipShape(Capsule())
     }
     
-    public init(content: some View, backgroundColor: Color? = nil, borderColor: Color? = nil, borderWidth: CGFloat? = nil) {
+    public init(_ content: some View, backgroundColor: Color? = nil, borderColor: Color? = nil, borderWidth: CGFloat? = nil) {
         self.backgroundColor = backgroundColor ?? .next.defaultColor
         self.borderColor = borderColor ?? .clear
         self.borderWidth = borderWidth ?? 0
@@ -37,11 +37,11 @@ public struct Chip: View {
 }
 
 #Preview {
-    Chip(content: Text("Hello, World!"))
-        .preferredColorScheme(.dark)
+    Chip(Text("Hello, World!"))
+//        .preferredColorScheme(.dark)
 }
 
 #Preview {
-    Chip(content: Text("Hello, World!").fontWeight(.semibold).paddingHorizontal(size: 2), backgroundColor: .clear, borderColor: .white.opacity(0.3), borderWidth: 1)
+    Chip(Text("Hello, World!").fontWeight(.semibold).paddingHorizontal(size: 2), backgroundColor: .clear, borderColor: .white.opacity(0.3), borderWidth: 1)
         .preferredColorScheme(.dark)
 }

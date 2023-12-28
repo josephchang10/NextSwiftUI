@@ -94,5 +94,5 @@ public struct CircularProgressView: View {
 }
 
 #Preview {
-    CircularProgressView(value: Float(70) / 100)
+    CircularProgressView(value: Float(60) / 100)
 }
