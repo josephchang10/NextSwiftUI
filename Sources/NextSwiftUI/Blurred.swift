@@ -11,7 +11,7 @@ struct BlurredBackgroundModifier: ViewModifier {
     func body(content: Content) -> some View {
         ZStack {
             content
-                .blur(radius: 20)
+                .blur(radius: 16)
             content
         }
     }
