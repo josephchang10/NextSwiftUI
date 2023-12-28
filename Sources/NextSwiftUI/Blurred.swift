@@ -50,5 +50,5 @@ public extension View {
 #Preview {
     AngularGradient.next.anguar
         .padding(40)
-        .blurred(.large)
+        .blurred()
 }

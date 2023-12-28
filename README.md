@@ -48,3 +48,12 @@ struct ContentView: View {
 }
 ```
 ![](Docs/Assets/CircularProgressView/With%20Value.png)
+## Modifiers
+### Blurred
+You can use the blurred view modifier to duplicate the view and blur it to create a blurred effect.
+#### Usage
+```swift
+AngularGradient.next.anguar
+    .blurred()
+```
+![](Docs/Assets/Blurred/Usage.png)
