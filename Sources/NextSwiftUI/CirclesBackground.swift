@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-public struct CirclesBackground<Content: View>: View {
+struct CirclesBackgroundModifier: ViewModifier {
     @State private var animate: Bool = false
-    let content: Content  // The content view that will be placed on top
     
-    public var body: some View {
+    func body(content: Content) -> some View {
         ZStack {
             Group {
                 CircleBackground(color: .next.greenCircle)
@@ -39,15 +38,16 @@ public struct CirclesBackground<Content: View>: View {
             LinearGradient.next.background
         )
     }
-    
-    public init(@ViewBuilder content: () -> Content) {
-        self.content = content()
+}
+
+extension View {
+    public func backgroundCircles() -> some View {
+        modifier(CirclesBackgroundModifier())
     }
 }
 
 #Preview {
-    CirclesBackground {
-        Text("Hello, World!")
-    }
-    .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+    Text("Hello, World!")
+        .backgroundCircles()
+        .preferredColorScheme(.dark)
 }
