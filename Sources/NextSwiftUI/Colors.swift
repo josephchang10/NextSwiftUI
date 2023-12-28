@@ -11,6 +11,7 @@ public extension Color {
     struct Next {
         public static let background = named("background")
         public static let background2 = named("background2")
+        public static let defaultColor = Color(h: .degrees(240), s: 5 / 100, l: 26 / 100)
         public static let greenCircle = named("greenCircle")
         public static let cyan = named("cyan")
         public static let grey = named("grey")
@@ -40,4 +41,17 @@ public extension Color {
     }
     
     static var next: Next.Type { Next.self }
+}
+
+extension Color {
+    // MARK: HSV initializers
+    init(h: Angle, s: Double, v: Double, opacity: Double = 1) {
+        self.init(hue: h.degrees / 360, saturation: s, brightness: v, opacity: opacity)
+    }
+
+    // MARK: HSL initializers
+    init(h: Angle, s: Double, l: Double, opacity: Double = 1) {
+        let v = l + s * min(l, 1 - l)
+        self.init(h: h, s: v == 0 ? 0 : 2 * (1 - l / v), v: v, opacity: opacity)
+    }
 }
