@@ -16,7 +16,8 @@ public struct Chip: View {
     
     public var body: some View {
         content
-            .padding()
+            .paddingHorizontal(size: 1)
+            .height(size: 7)
             .overlay {
                 Capsule()
                     .stroke(borderColor, lineWidth: borderWidth)
@@ -39,6 +40,6 @@ public struct Chip: View {
 }
 
 #Preview {
-    Chip(content: Text("Hello, World!"), backgroundColor: .clear, borderColor: .white.opacity(0.3), borderWidth: 1)
+    Chip(content: Text("Hello, World!").fontWeight(.semibold).paddingHorizontal(size: 2), backgroundColor: .clear, borderColor: .white.opacity(0.3), borderWidth: 1)
         .preferredColorScheme(.dark)
 }
