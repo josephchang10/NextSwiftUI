@@ -9,17 +9,46 @@ import SwiftUI
 
 /// Circular progress views are utilized to indicate an undetermined wait period or visually represent the duration of a process.
 public struct CircularProgressView: View {
+    public enum Size {
+        case middle
+        case large
+        
+        var width: CGFloat {
+            switch self {
+            case .middle:
+                40
+            case .large:
+                60
+            }
+        }
+        
+        var height: CGFloat {
+            width
+        }
+        
+        var lineWidth: CGFloat {
+            switch self {
+            case .middle:
+                6
+            case .large:
+                8
+            }
+        }
+    }
+    
     // MARK: - Properties
     @State private var degree = 270
     @State private var spinnerLength: CGFloat
     @State private var animate: Bool
     
+    let size: Size
+    
     public var body: some View {
         Circle()
             .trim(from: 0.0, to: spinnerLength)
-            .stroke(LinearGradient(colors: [.red, .blue], startPoint: .topLeading, endPoint: .bottomTrailing), style: StrokeStyle(lineWidth: 8.0, lineCap: .round, lineJoin: .round))
+            .stroke(LinearGradient(colors: [.red, .blue], startPoint: .topLeading, endPoint: .bottomTrailing), style: StrokeStyle(lineWidth: size.lineWidth, lineCap: .round, lineJoin: .round))
             .animation(Animation.easeIn(duration: 1.5).repeatForever(autoreverses: true), value: spinnerLength)
-            .frame(width: 60, height: 60)
+            .frame(width: size.width, height: size.height)
             .rotationEffect(Angle(degrees: Double(degree)))
             .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false), value: degree)
             .onAppear {
@@ -30,14 +59,16 @@ public struct CircularProgressView: View {
             }
     }
     
-    public init() {
+    public init(size: Size = .middle) {
         animate = true
         spinnerLength = 0.6
+        self.size = size
     }
     
-    public init<V>(value: V) where V: BinaryFloatingPoint {
+    public init<V>(value: V, size: Size = .middle) where V: BinaryFloatingPoint {
         animate = false
         spinnerLength = CGFloat(value)
+        self.size = size
     }
 }
 
