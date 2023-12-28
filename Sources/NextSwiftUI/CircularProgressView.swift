@@ -1,13 +1,14 @@
 //
-//  SpinningIndicator.swift
-//  FaceSwap
+//  CircularProgressView.swift
+//  
 //
 //  Created by Jiafu Zhang on 12/22/23.
 //
 
 import SwiftUI
 
-public struct SpinningIndicator: View {
+/// Circular progress views are utilized to indicate an undetermined wait period or visually represent the duration of a process.
+public struct CircularProgressView: View {
     // MARK: - Properties
     @State private var degree = 270
     @State private var spinnerLength = 0.6
@@ -30,5 +31,5 @@ public struct SpinningIndicator: View {
 }
 
 #Preview {
-    SpinningIndicator()
+    CircularProgressView()
 }

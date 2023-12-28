@@ -1,8 +1,8 @@
 //
 //  CircleBackground.swift
-//  MovieBooking
+//  
 //
-//  Created by Willie Yam on 2022-08-16.
+//  Created by Jiafu Zhang on 12/20/23.
 //
 
 import SwiftUI
