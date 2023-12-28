@@ -10,11 +10,14 @@ import SwiftUI
 /// Circular progress views are utilized to indicate an undetermined wait period or visually represent the duration of a process.
 public struct CircularProgressView: View {
     public enum Size {
+        case small
         case middle
         case large
         
         var width: CGFloat {
             switch self {
+            case .small:
+                20
             case .middle:
                 40
             case .large:
@@ -28,6 +31,8 @@ public struct CircularProgressView: View {
         
         var lineWidth: CGFloat {
             switch self {
+            case .small:
+                4
             case .middle:
                 6
             case .large:
@@ -73,7 +78,11 @@ public struct CircularProgressView: View {
 }
 
 #Preview {
-    CircularProgressView()
+    VStack(spacing: 50) {
+        CircularProgressView(size: .small)
+        CircularProgressView()
+        CircularProgressView(size: .large)
+    }
 }
 
 #Preview {
