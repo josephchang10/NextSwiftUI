@@ -7,8 +7,22 @@
 
 import SwiftUI
 
-struct BlurredBackgroundModifier: ViewModifier {
-    func body(content: Content) -> some View {
+public struct BlurredBackgroundModifier: ViewModifier {
+    public enum Amount {
+        case middle
+        case large
+        
+        var radius: CGFloat {
+            switch self {
+            case .middle:
+                12
+            case .large:
+                16
+            }
+        }
+    }
+    
+    public func body(content: Content) -> some View {
         ZStack {
             content
                 .blur(radius: 16)
@@ -18,7 +32,7 @@ struct BlurredBackgroundModifier: ViewModifier {
 }
 
 public extension View {
-    func blurred() -> some View {
+    func blurred(_ amount: BlurredBackgroundModifier.Amount) -> some View {
         modifier(BlurredBackgroundModifier())
     }
 }
@@ -26,5 +40,5 @@ public extension View {
 #Preview {
     AngularGradient.next.anguar
         .padding(40)
-        .blurred()
+        .blurred(.large)
 }
