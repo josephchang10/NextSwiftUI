@@ -16,6 +16,8 @@ public struct Chip: View {
     
     public var body: some View {
         content
+            .paddingHorizontal(size: 2)
+            // base
             .paddingHorizontal(size: 1)
             .height(size: 7)
             .overlay {
