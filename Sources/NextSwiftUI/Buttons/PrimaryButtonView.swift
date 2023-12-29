@@ -17,8 +17,8 @@ public struct PrimaryButtonView: View {
         content
             .font(.subheadline.weight(.bold))
             .foregroundColor(.white)
-            .height(size: 10)
             .padding(.horizontal, .size(4))
+            .padding(.vertical, .size(3))
             .background(LinearGradient(colors: gradient, startPoint: .topLeading, endPoint: .bottomTrailing))
             .cornerRadius(10)
             .overlay {
