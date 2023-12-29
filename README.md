@@ -65,6 +65,13 @@ Skeleton is a placeholder to show a loading state.
 Skeleton()
 ```
 ![](Docs/Assets/Skeleton/Usage.gif)
+### Spinner
+Spinner express an unspecified wait time or display the length of a process.
+#### Usage
+```swift
+Spinner()
+```
+![](Docs/Assets/Spinner/Usage.gif)
 ## Modifiers
 ### Blurred
 You can use the blurred view modifier to duplicate the view and blur it to create a blurred effect.
