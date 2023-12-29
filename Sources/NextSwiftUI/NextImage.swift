@@ -10,8 +10,8 @@ import Nuke
 import NukeUI
 
 public struct NextImage: View {
-    var url: URL?
-    var onCompletion: ((Result<ImageResponse, Error>) -> Void) = { _ in }
+    private let url: URL?
+    private let onCompletion: ((Result<ImageResponse, Error>) -> Void)
     
     public var body: some View {
         LazyImage(url: url, transaction: .init(animation: .default)) { state in
@@ -25,8 +25,13 @@ public struct NextImage: View {
         }
         .onCompletion(onCompletion)
     }
+    
+    public init(url: URL?, onCompletion: ((Result<ImageResponse, Error>) -> Void)? = nil) {
+        self.url = url
+        self.onCompletion = onCompletion ?? { _ in }
+    }
 }
 
 #Preview {
-    NextImage()
+    NextImage(url: nil)
 }
