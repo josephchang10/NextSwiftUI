@@ -16,10 +16,10 @@ public struct Chip: View {
     
     public var body: some View {
         content
-            .paddingHorizontal(2)
+            .paddingHorizontal(size: 2)
             // base
-            .paddingHorizontal(1)
-            .height(7)
+            .paddingHorizontal(size: 1)
+            .height(size: 7)
             .overlay {
                 Capsule()
                     .stroke(borderColor, lineWidth: borderWidth)
@@ -42,6 +42,6 @@ public struct Chip: View {
 }
 
 #Preview {
-    Chip(Text("Chip").fontWeight(.semibold).paddingHorizontal(2), backgroundColor: .clear, borderColor: .white.opacity(0.3), borderWidth: 1)
+    Chip(Text("Chip").fontWeight(.semibold).paddingHorizontal(size: 2), backgroundColor: .clear, borderColor: .white.opacity(0.3), borderWidth: 1)
         .preferredColorScheme(.dark)
 }

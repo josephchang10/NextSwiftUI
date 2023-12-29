@@ -31,7 +31,7 @@ public struct BlurredBackgroundModifier: ViewModifier {
                 .scaleEffect(1.05)
                 .saturation(1.5)
                 .opacity(0.3)
-                .offsetY(1)
+                .offsetY(size: 1)
             content
         }
     }
