@@ -48,6 +48,15 @@ struct ContentView: View {
 }
 ```
 ![](Docs/Assets/CircularProgressView/With%20Value.png)
+### NextImage
+The NextImage view is used to display images.
+#### Usage
+```swift
+NextImage(url: .init(string: "https://images.unsplash.com/photo-1665475998014-dc2ae4e93af2"))
+```
+#### Animated Loading
+NextImage has a built-in shimming animation to indicate the image is loading and an default animation when the image loads.
+![](Docs/Assets/NextImage/Animated%20Loading.gif)
 ### Skeleton
 Skeleton is a placeholder to show a loading state and the expected shape of a component.
 #### Usage

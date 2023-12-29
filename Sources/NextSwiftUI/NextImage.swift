@@ -33,5 +33,6 @@ public struct NextImage: View {
 }
 
 #Preview {
-    NextImage(url: nil)
+    Nuke.DataLoader.sharedUrlCache.removeAllCachedResponses()
+    return NextImage(url: .init(string: "https://images.unsplash.com/photo-1665475998014-dc2ae4e93af2"))
 }
