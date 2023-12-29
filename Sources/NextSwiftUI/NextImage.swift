@@ -9,11 +9,12 @@ import SwiftUI
 import Nuke
 import NukeUI
 
-struct NextImage: View {
+public struct NextImage: View {
+    var url: URL?
     var onCompletion: ((Result<ImageResponse, Error>) -> Void) = { _ in }
     
-    var body: some View {
-        LazyImage(url: URL(string: "https://replicate.delivery/pbxt/JkUYWp60oNwz1SF9AJvJPv7upLqucTyaeCxQ07qZGijlDKxt/face_swap_09.jpg"), transaction: .init(animation: .default)) { state in
+    public var body: some View {
+        LazyImage(url: url, transaction: .init(animation: .default)) { state in
             if let image = state.image {
                 image
                     .resizable()
