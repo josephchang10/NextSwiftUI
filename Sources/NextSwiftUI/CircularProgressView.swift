@@ -44,7 +44,7 @@ public struct CircularProgressView: View {
     // MARK: - Properties
     @State private var degree = 270
     @State private var spinnerLength: CGFloat
-    @State private var animate: Bool
+    @State private var disableAnimation: Bool
     
     let size: Size
     
@@ -60,7 +60,7 @@ public struct CircularProgressView: View {
                 .rotationEffect(Angle(degrees: Double(degree)))
                 .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false), value: degree)
                 .onAppear {
-                    if animate {
+                    if !disableAnimation {
                         degree = 270 + 360
                         spinnerLength = 0
                     }
@@ -69,8 +69,8 @@ public struct CircularProgressView: View {
         .frame(width: size.width, height: size.height)
     }
     
-    public init(spinnerLength: CGFloat = 0.6, size: Size = .middle) {
-        animate = true
+    public init(spinnerLength: CGFloat = 0.6, size: Size = .middle, disableAnimation: Bool = false) {
+        self.disableAnimation = disableAnimation
         self.spinnerLength = spinnerLength
         self.size = size
         self.track = AnyView(Circle().stroke(
@@ -84,7 +84,7 @@ public struct CircularProgressView: View {
     }
     
     public init<V>(value: V, size: Size = .middle) where V: BinaryFloatingPoint {
-        self.init(spinnerLength: CGFloat(value), size: size)
+        self.init(spinnerLength: CGFloat(value), size: size, disableAnimation: true)
     }
 }
 
