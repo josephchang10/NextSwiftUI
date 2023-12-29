@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Skeleton is a placeholder to show a loading state and the expected shape of a component
+/// Skeleton is a placeholder to show a loading state
 public struct Skeleton: View {
     private let animation: Animation
     private var content: AnyView?

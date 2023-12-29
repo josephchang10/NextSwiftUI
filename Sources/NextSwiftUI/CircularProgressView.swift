@@ -48,13 +48,11 @@ public struct CircularProgressView: View {
     
     let size: Size
     
+    private var track: AnyView
+    
     public var body: some View {
         ZStack {
-            Circle()
-                .stroke(
-                    Color.next.default300.opacity(0.5),
-                    lineWidth: size.lineWidth
-                )
+            track
             Circle()
                 .trim(from: 0.0, to: spinnerLength)
                 .stroke(LinearGradient(colors: [.red, .blue], startPoint: .topLeading, endPoint: .bottomTrailing), style: StrokeStyle(lineWidth: size.lineWidth, lineCap: .round, lineJoin: .round))
@@ -71,22 +69,28 @@ public struct CircularProgressView: View {
         .frame(width: size.width, height: size.height)
     }
     
-    public init(size: Size = .middle) {
+    public init(spinnerLength: CGFloat = 0.6, size: Size = .middle) {
         animate = true
-        spinnerLength = 0.6
+        self.spinnerLength = spinnerLength
         self.size = size
+        self.track = AnyView(Circle().stroke(
+                Color.next.default300.opacity(0.5),
+                lineWidth: size.lineWidth))
+    }
+    
+    public init(spinnerLength: CGFloat = 0.6, size: Size = .middle, track: some View) {
+        self.init(spinnerLength: spinnerLength, size: size)
+        self.track = AnyView(track)
     }
     
     public init<V>(value: V, size: Size = .middle) where V: BinaryFloatingPoint {
-        animate = false
-        spinnerLength = CGFloat(value)
-        self.size = size
+        self.init(spinnerLength: CGFloat(value), size: size)
     }
 }
 
 #Preview {
     VStack(spacing: 50) {
-        CircularProgressView(size: .small)
+        CircularProgressView(size: .small, track: Color.clear)
         CircularProgressView()
         CircularProgressView(size: .large)
     }
