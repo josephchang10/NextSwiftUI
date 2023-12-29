@@ -13,6 +13,8 @@ public extension Color {
         
         public static let background = named("background")
         public static let background2 = named("background2")
+        public static let content2 = named("content2")
+        public static let content3 = named("content3")
         public static let defaultColor = named("default")
         public static let default300 = named("default-300")
         public static let greenCircle = named("greenCircle")
