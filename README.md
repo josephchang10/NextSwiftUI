@@ -59,10 +59,10 @@ NextImage has a built-in shimming animation to indicate the image is loading and
 
 ![](Docs/Assets/NextImage/Animated%20Loading.gif)
 ### Skeleton
-Skeleton is a placeholder to show a loading state and the expected shape of a view.
+Skeleton is a placeholder to show a loading state.
 #### Usage
 ```swift
-Skeleton(Color.next.default300)
+Skeleton()
 ```
 ![](Docs/Assets/Skeleton/Usage.gif)
 ## Modifiers

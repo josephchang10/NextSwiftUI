@@ -20,7 +20,7 @@ public struct NextImage: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
             } else {
-                Skeleton(Color.next.default300)
+                Skeleton()
             }
         }
         .onCompletion(onCompletion)
