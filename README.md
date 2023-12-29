@@ -48,6 +48,13 @@ struct ContentView: View {
 }
 ```
 ![](Docs/Assets/CircularProgressView/With%20Value.png)
+### Skeleton
+Skeleton is a placeholder to show a loading state and the expected shape of a component.
+#### Usage
+```swift
+Skeleton(Color.next.default300)
+```
+![](Docs/Assets/Skeleton/Usage.gif)
 ## Modifiers
 ### Blurred
 You can use the blurred view modifier to duplicate the view and blur it to create a blurred effect.
