@@ -24,7 +24,7 @@ public extension CGFloat {
         return n * bodyFontSize
     }
     
-    var sizeToRem: Self {
-        Self.rem(self / 4)
+    static func size(_ n: Self) -> Self {
+        Self.rem(n / 4)
     }
 }
