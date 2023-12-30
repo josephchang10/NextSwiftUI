@@ -10,10 +10,13 @@ import SwiftUI
 public struct ButtonIcon: View {
     private let content: AnyView
     
+    private let width: CGFloat = .size(10)
+    private var height: CGFloat { width }
+    
     public var body: some View {
         content
-            .padding(.size(10) / 3)
-            .frame(width: .size(10), height: .size(10))
+            .padding(width / 3)
+            .frame(width: width, height: height)
             .background {
                 Circle()
                     .fill(
