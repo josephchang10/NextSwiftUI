@@ -8,13 +8,33 @@
 import SwiftUI
 
 public struct Icon: View {
+    public enum Size {
+        case medium
+        case large
+        
+        var width: CGFloat {
+            switch self {
+            case .medium:
+                .size(10)
+            case .large:
+                .size(12)
+            }
+        }
+        
+        var height: CGFloat {
+            width
+        }
+    }
+    
     private let content: AnyView
     private let outlineColor = Color(red: 189/255, green: 252/255, blue: 254/255)
     private let insideColor = Color(red: 2/255, green: 109/255, blue: 1)
+    private let size: Size
     
     public var body: some View {
         content
-            .padding(.size(2))
+            .padding(size.width / 4)
+            .frame(width: size.width, height: size.height)
             .overlay {
                 Circle()
                     .fill(
@@ -37,12 +57,16 @@ public struct Icon: View {
             }
     }
     
-    public init(_ content: some View) {
+    public init(_ content: some View, size: Size = .medium) {
         self.content = AnyView(content)
+        self.size = size
     }
 }
 
 #Preview {
-    Icon(Image(systemName: "arrow.left.arrow.right"))
-        .preferredColorScheme(.dark)
+    HStack {
+        Icon(Image(systemName: "arrow.left.arrow.right").resizable())
+        Icon(Image(systemName: "arrow.left.arrow.right").resizable(), size: .large)
+    }
+    .preferredColorScheme(.dark)
 }
