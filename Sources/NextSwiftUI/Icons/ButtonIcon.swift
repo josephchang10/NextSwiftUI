@@ -12,7 +12,8 @@ public struct ButtonIcon: View {
     
     public var body: some View {
         content
-            .padding(50 / 4)
+            .padding(.size(10) / 3)
+            .frame(width: .size(10), height: .size(10))
             .background {
                 Circle()
                     .fill(
@@ -40,7 +41,7 @@ public struct ButtonIcon: View {
 }
 
 #Preview {
-    ButtonIcon(Image(systemName: "arrow.left.arrow.right"))
+    ButtonIcon(Image(systemName: "arrow.left.arrow.right").resizable())
         .backgroundCircles()
         .preferredColorScheme(.dark)
 }
