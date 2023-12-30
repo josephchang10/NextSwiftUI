@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension View {
+public extension View {
     func height(size: CGFloat) -> some View {
         frame(height: .size(size))
     }
