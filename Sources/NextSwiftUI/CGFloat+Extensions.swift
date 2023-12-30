@@ -27,4 +27,17 @@ public extension CGFloat {
     static func size(_ n: Self) -> Self {
         Self.rem(n / 4)
     }
+    
+    // Helper function to translate pixels to points in SwiftUI, considering screen density
+    static func pixel(_ n: Self) -> Self {
+        #if canImport(AppKit)
+        let screenScale = NSScreen.main?.backingScaleFactor
+        #else
+        let screenScale = UIScreen.current?.scale
+        #endif
+        guard let screenScale else {
+            return n
+        }
+        return screenScale * n
+    }
 }
