@@ -37,12 +37,12 @@ public struct Icon: View {
             }
     }
     
-    public init(content: some View) {
+    public init(_ content: some View) {
         self.content = AnyView(content)
     }
 }
 
 #Preview {
-    Icon(content: Image(systemName: "arrow.left.arrow.right"))
+    Icon(Image(systemName: "arrow.left.arrow.right"))
         .preferredColorScheme(.dark)
 }
