@@ -29,4 +29,6 @@ public struct ActionButtonView: View {
 
 #Preview {
     ActionButtonView(content: Image(systemName: "square.and.arrow.down"))
+        .backgroundCircles()
+        .preferredColorScheme(.dark)
 }
