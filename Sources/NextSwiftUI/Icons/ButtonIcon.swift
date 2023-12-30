@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct ButtonIcon: View {
+public struct ButtonIcon: View {
     private let content: AnyView
     
-    var body: some View {
+    public var body: some View {
         content
             .padding(50 / 4)
             .background {
