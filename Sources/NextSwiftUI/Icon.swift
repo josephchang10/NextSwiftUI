@@ -14,7 +14,7 @@ public struct Icon: View {
     
     public var body: some View {
         content
-            .padding()
+            .padding(.size(2))
             .overlay {
                 Circle()
                     .fill(
@@ -26,12 +26,12 @@ public struct Icon: View {
                         .opacity(0.75)
                     )
                 Circle()
-                    .stroke(LinearGradient(colors: [outlineColor.opacity(0.15), .white.opacity(0)], startPoint: .top, endPoint: .init(x: 0.5, y: 0.2)), lineWidth: 1)
+                    .stroke(LinearGradient(colors: [outlineColor.opacity(0.15), .white.opacity(0)], startPoint: .top, endPoint: .init(x: 0.5, y: 0.3)), lineWidth: 1)
                 Circle()
                     .stroke(LinearGradient(stops: [
                         .init(color: .init(red: 189/255, green: 252/255, blue: 254/255, opacity: 0), location: 0),
                         .init(color: .init(red: 120/255, green: 161/255, blue: 232/255, opacity: 0), location: 0.4),
-                        .init(color: .init(red: 39/255, green: 55/255, blue: 207/255, opacity: 0), location: 0.9),
+                        .init(color: .init(red: 39/255, green: 55/255, blue: 207/255, opacity: 0), location: 0.85),
                         .init(color: outlineColor, location: 1)
                     ], startPoint: .top, endPoint: .bottom))
             }
